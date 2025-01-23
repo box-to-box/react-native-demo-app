@@ -1,0 +1,20 @@
+# For more information about this configuration visit
+# https://docs.fastlane.tools/actions/gym/#gymfile
+
+# In general, you can use the options available
+# fastlane gym --help
+
+scheme("BitriseReactNativeSample")
+
+# provide provisioning profiles to use
+export_options({
+  method: "app-store",
+})
+
+# disabled including bitcode in the build
+# enabling bitcode raises the following exception:
+#   Domain=IDEFoundationErrorDomain Code=1 "exportOptionsPlist error for key 'uploadBitcode': cannot upload bitcode because bitcode is imbalanced"
+# see https://github.com/fastlane/fastlane/issues/17171#issuecomment-757276400
+include_bitcode(false)
+# include symbols in the build
+include_symbols(true)
