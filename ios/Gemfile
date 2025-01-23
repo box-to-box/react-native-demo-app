@@ -1,0 +1,13 @@
+source "https://rubygems.org"
+ruby '2.7.8'
+
+# 2.223.1 is needed due to https://github.com/fastlane/fastlane/issues/22248#issuecomment-2378489778
+gem "fastlane", "2.223.1"
+gem "dotenv"
+gem "cocoapods", "1.12.1"
+# required when running fastlane with ruby 2.7
+gem "activesupport", "~> 5.0"
+gem "securerandom", "0.3.2"
+
+plugins_path = File.join(File.dirname(__FILE__), 'fastlane', 'Pluginfile')
+eval_gemfile(plugins_path) if File.exist?(plugins_path)
